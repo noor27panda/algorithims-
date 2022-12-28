@@ -40,22 +40,25 @@ const linearsearch =(val, arr , len) =>{
 const arr =[1,2,3,4,5,6,7,8]
 console.log(linearsearch(0,arr,arr.length))
 
+
 ////selection sort
+
+const swap = (i, j, arraysort) => {
+    const swapping = arraysort[i];
+    arraysort[i] = arraysort[j];
+    arraysort[j] = swapping;
+  };
 const select=(arraysort)=> { 
     var n = arraysort.length;
         
-    for(var i = 0; i < n; i++) {
+    for(var i = 0; i < n-1; i++) {
         var min = i;
         for(var j = i+1; j < n; j++){
             if(arraysort[j] < arraysort[min]) {
                 min=j; 
             }
          }
-         if (min != i) {
-             var result = arraysort[i]; 
-             arraysort[i] = arraysort[min];
-             arraysort[min] = result;      
-        }
+            swap(i, min, arraysort)
     }
     return arraysort;
 }
